@@ -1,5 +1,8 @@
 import cv2
 import mediapipe as mp
+import signn
+
+
 
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 600)
@@ -8,6 +11,8 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 500)
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 hand = mp_hands.Hands()
+
+
 
 while True:
     success, frame = cap.read()
