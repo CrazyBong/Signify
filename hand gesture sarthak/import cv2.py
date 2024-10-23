@@ -1,6 +1,8 @@
 import cv2
 import mediapipe as mp
+import os
 
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 # Function to classify hand gestures
 def classify_gesture(lm_list):
     # Calculate the distances between finger joints
@@ -14,9 +16,9 @@ def classify_gesture(lm_list):
     if thumb_dist < 0 and index_dist < 0 and middle_dist < 0 and ring_dist < 0 and little_dist < 0:
         gesture = "Fist"
     elif thumb_dist > 0 and index_dist < 0 and middle_dist < 0 and ring_dist < 0 and little_dist < 0:
-        gesture = "Thumb Up"
-    elif thumb_dist < 0 and index_dist > 0 and middle_dist > 0 and ring_dist > 0 and little_dist > 0:
         gesture = "Full Open Hand"
+    elif thumb_dist < 0 and index_dist > 0 and middle_dist > 0 and ring_dist > 0 and little_dist > 0:
+        gesture = "Thumb Up"
     else:
         gesture = "Unknown"
 
